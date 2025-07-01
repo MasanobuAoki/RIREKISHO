@@ -3,7 +3,7 @@ import os
 import json
 
 # replace with your actual key later
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "6ti9gYeT4MOVi6jStANrf0M8TOR5XTeT3BlbkFJgRIxSc-mfCDgs2u-lIcAQuqluFcVrR5HRrjhSBX5GwakU0TPl0IEWFmEhq59z9KgZX2kycESAA"
 client = OpenAI()
 
 def collect_education_entries():
@@ -101,10 +101,9 @@ Please answer politely in simple English, no additional prompts.
                 )
                 print(f"\nGPT: {clarify_response.choices[0].message.content.strip()}")
 
-                # after answering, continue to validation on current combined_answer
-                # do NOT add question to combined_answer
+                # do NOT add the question to combined_answer, just continue with validation
             else:
-                # treat as data
+                # treat as data and add it to the combined_answer
                 combined_answer += user_input + " "
 
             # always re-run validation on current combined_answer
@@ -154,6 +153,7 @@ Please answer politely in simple English, no additional prompts.
             combined_answer = ""  # clear for next block
 
     return entries
+
 
 
 
